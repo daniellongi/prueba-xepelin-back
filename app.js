@@ -43,7 +43,7 @@ app.post('/p2-prueba-xepelin', async (req, res) => {
         link: `https://docs.google.com/spreadsheets/d/${spreadSheetId}`
       };
       const webhookDataSended = sendGoogleSheetToWebHook(webhookUrl, dataToSendWebHook);
-      if(webhookDataSended) return res.status(200).send(`Se ha enviado a ${email}`);
+      if(webhookDataSended) return res.status(200).send(`Se ha enviado a ${email} el google sheet con los resultados del scrapping`);
       return res.status(400).send("Hubo un error al enviar el google spreadsheet al mail");
     }
     return res.status(400).send("Hubo un error al agregar el contenido al google sheet");
