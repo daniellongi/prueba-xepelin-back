@@ -6,7 +6,7 @@ const writeContentInGoogleSheets = async (values, spreadSheetId) => {
     const client = new google.auth.JWT(
       process.env.CLIENT_EMAIL,
       null,
-      process.env.PRIVATE_KEY_ID,
+      JSON.parse(process.env.PRIVATE_KEY_ID),
       ['https://www.googleapis.com/auth/spreadsheets']
     );
     const googleSheetIsEmpty = await emptyGoogleSheet(client, spreadSheetId);
@@ -25,7 +25,6 @@ const writeContentInGoogleSheets = async (values, spreadSheetId) => {
             values: values,
           },
         });
-        console.log("el response del update es", response);
         if (response.status === 200) {
           return true;
         }
