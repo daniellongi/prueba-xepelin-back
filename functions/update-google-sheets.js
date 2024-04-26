@@ -25,7 +25,7 @@ const writeContentInGoogleSheets = async (values, spreadSheetId) => {
             values: values,
           },
         });
-
+        console.log("el response del update es", response);
         if (response.status === 200) {
           return true;
         }
